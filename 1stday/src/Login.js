@@ -1,57 +1,42 @@
-
-import React, { useState } from 'react';
-
+import React from 'react';
 export default class Login extends React.Component{
     constructor(){
         super();
         this.state={
-            userName:"",
-            email:" ",
-            passWord:" "
-
+            userName:" ",
+            password:" "
         }
     }
     handleusername=(event)=>{
-      var value=event.target.value;
-     this.setState({userName:value})
-     console.log(this.state.userName)
-    }
-    handleEmail=(event)=>{
         var value=event.target.value;
-        this.setState({email:value})
-        console.log(this.state.email)
+        this.setState({userName:value})
+    
+    }
+    handleemail=(event)=>{
+        var value=event.target.value;
+        this.setState({password:value})
 
     }
-    handleLogin=(event)=>{
-        var value=event.target.value;
-        this.setState({passWord:value})
-         console.log(this.state.passWord)
-    }
     render(){
-       
         return(
             <div>
                 <label>
                     username:
-                <input type="text" placeholder="username" onChange={this.handleusername}/>
+                <input type="text" placeholder='username' onChange={this.handleusername}/>
+                {this.state.userName}
                 </label>
-                <label>
-                    Email:
-                    <input type="text" placeholder="Email" onChange={this.handleEmail}/>
-                </label>
-                <label>
-                    Password:
-                    <input type="text" placeholder="password" onChange={this.handleLogin}/>
-                </label>
-                <button>
-                    LOGIN
-                </button>
-        
-            {this.state.userName}
-            {this.state.email}
-            {this.state.passWord}
+            
+            <label>
+                email:
+            <input type="text" placeholder='email' onChange={this.handleemail}/>
+                  {this.state.password}
+            </label>
+            <button>
+                LOgin
+            </button>
+
             </div>
+            
         )
     }
-   
 }
